@@ -8,11 +8,12 @@
 #example input:given a=100 ,100 100, -10) and d=2020 01 01, 2020 02 01, 2020 03 01, 2020 04 01, 2 the function should return 230 as the final balance.
 #write a function def solution(A,D) that given an array a of n integers representing transaction amounts and an array d of n strings representing transacion ddates ,returns the final balance of the account at the end of year 2020 .transaction number k (for k within range [0..N-1]) was execcuted on the date represented by d[k] for amount a[k
 
-
-
+#write  function solution that takes two arrays, A for amounts and D for dates.
+#Initialize balance to 0 Initialize monthly_fee to 0 #Extract date and amount from the expense
 def solution(A, D):
     balance = 0
     monthly_fee = 0
+    #
     
     for i in range(len(A)):
         amount = A[i]
@@ -20,16 +21,18 @@ def solution(A, D):
         
         if amount < 0:
             balance += amount
-            
+## Extract month from date            
+                       
         month = int(date[5:7])  
         if month == 1:
             monthly_fee = 5
+            ## it's the first day of the month
         if date.endswith('-01'):
             balance -= monthly_fee
             monthly_fee = 0
             
     return balance 
-  
+  #dictionaries representing the expenses dates and prices
 expenses = [
     {"date": "2022-08-01", "amount": 100},
     {"date": "2022-01-15", "amount": 100},
@@ -45,7 +48,7 @@ for expense in expenses:
     print(f"Spent {amount} on {date}")
     total_spent += amount
 
-
+#output
 print(f"Total spent: {total_spent}")
 print(f"Remaining balance: {total_spent - (12*5)}")
 
