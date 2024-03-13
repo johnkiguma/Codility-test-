@@ -26,7 +26,8 @@ def solution(A, D):
         month = int(date[5:7])  
         if month == 1:
             monthly_fee = 5
-            ## it's the first day of the month
+            ## checking if it's the first day of the month
+        #add the expense to the balance.
         if date.endswith('-01'):
             balance -= monthly_fee
             monthly_fee = 0
